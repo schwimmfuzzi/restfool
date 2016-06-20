@@ -29,5 +29,26 @@ This is a bit disturbing from time to time. But REST is not made for you, human,
 GET api/companies
 ```
 Returns you a so called *index* of you companies. While you only communicate date with your REST api you do not need any verbs or actions inside your URLs. The HTTP verbs are enough to address every action needed on your data. You might have heard about CRUD operations in your previous *stackoverflow* or *googling* time. CRUD is short for a set of transactions, commonly used in database environments, meaning `creating`, `reading`, `updating` and `deleting` content/records.
+
+To make things simple, there are only two kinds of *base urls* you need to think about (Thanks to Brian Mulloy <sup id="a2">[2](#f2)</sup>):
+```
+companies
+companies/42
+```
+In the last example I removed the *api* part before the resources. I think from now on you know, when I am dealing with a resource :). The two base URLs are all we need to do all the following actions:
+```
+GET     companies       // get a list of all companies
+GET     companies/42    // get the company with the id 42
+POST    companies       // create a new record in your companies
+PUT     companies/42    // update data of company 42
+PATCH   companies/42    // partly update  data of company 42
+DELETE  companies/42    // delete company 42
+```
+In essence, that are all routes a simple REST api (for dealing with our company resource) needs. The nitty gritty details of the simple routes are discussed later. To highlight the missing verbs or actions in the URLs once again: They are not existing. A REST api is an essential part of a client-server architecture (does not matter if the client might be a server as well). But the complete application logic is part of the client. Let your client do the work with the data. He knows what and how. Things get clearer when you think about the company api and two clients working with it. One might be the administrative software, the accounting department uses, the other one is the maintenance software the facility team uses to report problems. Both are working with the exact same company api, but do different things with the data. So why to implement the various business logics needed in a single place, where the only similar thing is the data. In addition, you only need to keep your data at one place. No syncing, no backups of different databases. Whatever, you know these problems from your daily live and work better then I do.
+
+
+
+
 # footnotes
 <b id="f1">[1]</b> [Fielding - dissertation - Chap. 6](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm) [↩](#a1)
+<b id="f2">[2]</b> [nouns are good, verbs are bad](http://apigee.com/about/blog/technology/restful-api-design-nouns-are-good-verbs-are-bad) [↩](#a2)
