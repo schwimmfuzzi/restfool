@@ -19,4 +19,4 @@ HAL is a internet draft proposed by Mike Kelly (stateless.co) and can be inspect
 
 
 # footnotes
-<b id="f3">[3]</b> [JSON Hypertext Application Language]https://tools.ietf.org/html/draft-kelly-json-hal-08) [↩](#a1)
+<b id="f3">[3]</b> [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08) [↩](#a1)

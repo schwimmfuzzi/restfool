@@ -32,7 +32,9 @@ So now imagine, that in a lean and fast REST request, every time the api needs t
 I already noted, that there are two things, that are badly mixed all the time. Authentication and authorization. I dig deeper on this now.
 <!-- roles and rights  -->
 <!-- highlight the pros of having the rights directly added to the record -->
-<!-- display, that this is a personal feeling -->
+<!-- sidenote to resource based access control -->
+<!-- mention the persmissions header != auth header -->
+<!-- display, that this is a personal interpretation -->
 <!-- make an example with the primenumber thing and a seperated rights/roles thing on each service -->
 
 

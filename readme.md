@@ -8,4 +8,5 @@ This is the approach to aggregate all the vital information about restful apis t
 - [ ] Filter
 - [ ] Batch Processes
 - [ ] edges/shorthands
+- [ ] application settings (headers) 
 
