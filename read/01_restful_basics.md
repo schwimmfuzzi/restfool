@@ -4,7 +4,7 @@ What is this REST about? It means `representational state transfer`, but the nam
 REST builds on the very simple and deeply integrated HTTP principles and its methods.
 
 ## HTTP
-These methods are what we know as `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS` (and two more, not that major for REST). HTTP works on these, so does REST. That is every type of action a REST client can do -- better should do -- and that is far enough. In contrast to other interface paradigms for example `SOAP` or `RPC` interfaces, REST does never use any verb inside its URLs. REST only uses nouns. This can not be repeated enough times :) If you work with real world problems you will face this topic quite a lot. But having a clean REST api means having your URLs perfectly clean.
+These methods are what we know as `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS` (and some more, not that major for REST). HTTP works on these, so does REST. That is every type of action a REST client can do -- better should do -- and that is far enough. In contrast to other interface paradigms for example `SOAP` or `RPC` interfaces, REST does never use any verb inside its URLs. REST only uses nouns. This can not be repeated enough times :) If you work with real world problems you will face this topic quite a lot. But having a clean REST api means having your URLs perfectly clean.
 
 ## HTTP Codes
 At this point, I do not want to go to far with HTTP Codes, but remember one thing: HTTP has a lot more (useful) codes than 200, 500 and 404. Your REST api and every developer working with it will be extremely thankful if you use these properly. We will cover this later more precisely.
