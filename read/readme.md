@@ -8,9 +8,7 @@ Ok, where to start. Maybe some kind of table of contents might be nice. I belong
 1. [RESTful basics](01_restful_basics.md)
 2. [Authentication](02_authentication.md)
 3. [HATEOAS](03_HATEOAS.md)
-4. [Pagination, Search and Filters](04_pagination_and_filters.md)
-5. [Batch Actions](05_batch_actions.md)
-6. [Edges](06_edges.md)
+4. [Receipe](09_receipe.md)
 
 ## Pro Tips (appendix)
 In the end, I like to give you some more advanced tips for working with REST.
