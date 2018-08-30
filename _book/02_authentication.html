@@ -1,0 +1,332 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Authentication · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03_HATEOAS.html" />
+    
+    
+    <link rel="prev" href="01_restful_basics.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_restful_basics.html">
+            
+                <a href="01_restful_basics.html">
+            
+                    
+                    RESTful basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="02_authentication.html">
+            
+                <a href="02_authentication.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03_HATEOAS.html">
+            
+                <a href="03_HATEOAS.html">
+            
+                    
+                    HATEOAS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="09_receipe.html">
+            
+                <a href="09_receipe.html">
+            
+                    
+                    Receipe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="apdx01_tips.html">
+            
+                <a href="apdx01_tips.html">
+            
+                    
+                    Bring Back Verbs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Authentication</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="authentication">Authentication</h1>
+<p>A word in the beginning: Authentication can be done in many ways. I discuss some general topics at the beginning and describe a way I think thats fits well for my needs.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>One inevitable points that must not be discussed is the following: <strong>NEVER write crypto code yourself</strong>. Use existing and open methods to sign codes and tokens and no, obscurity is not security! Keep your secrets safe (not in a repository), and use generated passwords and keys.</p>
+<h2 id="auth-and-rest">Auth and REST</h2>
+<p>First things first: Every call you make in a REST api should be done via HTTPS. Development is some other thing, but keep your life environment safe. Inside a guarded connection, a proper signed auth token usually is enough for the most applications. This token comes along in the <code>Authorization-Header</code> of each call and contains everything the REST api (aka Server) needs to decide what is necessary to respond to the issuer. Issuer might be an machine itself or any user generated action. In both cases I talk of a client in the following.</p>
+<p>The REST api is a stateless thing. This means, the server saves absolutely no information about a) a session, b) a user context or c) an application context. The information passed by a client comes in:</p>
+<ul>
+<li>URL fixed parts</li>
+<li>URL dynamic parts params and filters</li>
+<li>HTTP Headers
+Given these information, the api decides how to deal with the clients request. Is the client authenticated, is he authorized (yep, two different things) what data shall be returned and how much of this.</li>
+</ul>
+<h2 id="auth-bottleneck">Auth Bottleneck</h2>
+<p>In a monolith application or MVC structured piece of software, usually you have access to auth information all the time. This means, when you render the frontend, you have information about which buttons to display and so on. In a REST based approach, you only have the token to process the clients request needs. Common examples are central user-apis that deal with authorization, that returns a token, the client uses to request other data. What you definitely want to prevent is a single <code>is this token correct call</code> to validate a tokens content on every request that comes in. For example if you have the company api I introduced earlier, a small workflow would be:</p>
+<pre><code>-&gt; user logs in to application via web application
+-&gt; web application asks the user-api to sign in
+-&gt; user api checks credentials, returns a token if credentials correct
+-&gt; web application saves the token and forwards the user to internal area
+-&gt; user clicks on some company staff list
+-&gt; web application takes the token, inserts it to `Authentication-Header` of a new request and asks the staff-api to return a list of all staff
+-&gt; api checks the token and decides if token is correct and what data to return
+</code></pre><p>So now imagine, that in a lean and fast REST request, every time the api needs to validate the token it would ask the user api to do so. Horrible, because it would (at least) double the amount of calls, and create an extreme load on the user-api. In a lot of applications the authorization workflow is the devil in the detail for poor scaling. We need to let the api (and yes, every api-worker in a scaled environment) decide if a token is valid. How do we reach this you might wonder? Especially when we want to hide the setup and the token from a frontend user. Its quite simple: we distribute the secret to sign/validate a token to every api worker/instance, when we start it. This even could be a dedicated call to the user endpoint (but I do not recommend this). Possibilities are almost endless.</p>
+<h2 id="authorization---roles-and-rights">Authorization - Roles And Rights</h2>
+<p>I already noted, that there are two things, that are badly mixed all the time. Authentication and authorization. I dig deeper on this now.
+<!-- roles and rights  -->
+<!-- highlight the pros of having the rights directly added to the record -->
+<!-- sidenote to resource based access control -->
+<!-- mention the persmissions header != auth header -->
+<!-- display, that this is a personal interpretation -->
+<!-- make an example with the primenumber thing and a seperated rights/roles thing on each service --></p>
+<h1 id="footnotes">footnotes</h1>
+<p><b id="f1">[1]</b> <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm" target="_blank">Fielding - dissertation - Chap. 6</a> <a href="#a1">&#x21A9;</a>
+<b id="f2">[2]</b> <a href="http://apigee.com/about/blog/technology/restful-api-design-nouns-are-good-verbs-are-bad" target="_blank">nouns are good, verbs are bad</a> <a href="#a2">&#x21A9;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01_restful_basics.html" class="navigation navigation-prev " aria-label="Previous page: RESTful basics">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03_HATEOAS.html" class="navigation navigation-next " aria-label="Next page: HATEOAS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Authentication","level":"1.3","depth":1,"next":{"title":"HATEOAS","level":"1.4","depth":1,"path":"03_HATEOAS.md","ref":"03_HATEOAS.md","articles":[]},"previous":{"title":"RESTful basics","level":"1.2","depth":1,"path":"01_restful_basics.md","ref":"01_restful_basics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02_authentication.md","mtime":"2018-08-30T19:07:59.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-30T19:10:48.864Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
