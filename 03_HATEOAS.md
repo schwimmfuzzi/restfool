@@ -3,6 +3,8 @@
 Hypertext as the engine of application state. Word. Who wants to achieve a solid and clean REST implementation can not ignore this essential feature. In this section we inspect what is behind HATEOAS, what is it used for, and why it absolutely makes sense to use it.
 
 ## Levels of RESTfulness
+https://martinfowler.com/articles/richardsonMaturityModel.html
+
 
 ## What is behind
 ***TODO***
@@ -20,3 +22,14 @@ HAL is a internet draft proposed by Mike Kelly (stateless.co) and can be inspect
 
 # footnotes
 <b id="f3">[3]</b> [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08) [↩](#a1)
+
+
+
+# links
+* http://stateless.co/hal_specification.html
+* https://restfulapi.net/hateoas/
+* https://medium.com/@andreasreiser94/why-hateoas-is-useless-and-what-that-means-for-rest-a65194471bc8
+* https://dzone.com/articles/introduction-hypertext-0
+* https://jeffknupp.com/blog/2014/06/03/why-i-hate-hateoas/
+* https://nordicapis.com/tools-to-make-hateoas-compliance-easier/
+* https://nordicapis.com/designing-a-true-rest-state-machine/

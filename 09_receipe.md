@@ -39,3 +39,8 @@ This is to summarize important things:
 
 ## Final note
 Always remember: stelessness empowers you with horizontal scalability - if it really is stateless.
+
+
+# links
+* https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
+* https://blog.philipphauer.de/restful-api-design-best-practices/
