@@ -1,4 +1,4 @@
-# Receipe
+# Recipe
 This is to summarize important things:
 
 ## Beginner

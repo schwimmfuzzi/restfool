@@ -36,7 +36,7 @@ Used for the same reason as 301, but ensures the client that the same method and
 
 
 ## Client Errors
-Let the client know that the sent request was not correct. Not beeing correct can mean a lot of things...
+Let the client know that the sent request was not correct. Not being correct can mean a lot of things...
 ### 400 Bad Request
 General error message for a request that is syntactically not correct. This is by far the most miss-used code the world has ever seen. Its not the `swiss-army-knife-code-for-everything-that-did-not-work`!
 ### 401 Unauthorized
