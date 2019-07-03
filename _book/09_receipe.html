@@ -60,7 +60,7 @@
     <link rel="next" href="apdx01_tips.html" />
     
     
-    <link rel="prev" href="03_HATEOAS.html" />
+    <link rel="prev" href="07_HTTP_codes.html" />
     
 
     </head>
@@ -141,7 +141,20 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="09_receipe.html">
+        <li class="chapter " data-level="1.5" data-path="07_HTTP_codes.html">
+            
+                <a href="07_HTTP_codes.html">
+            
+                    
+                    HTTP codes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="09_receipe.html">
             
                 <a href="09_receipe.html">
             
@@ -154,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="apdx01_tips.html">
+        <li class="chapter " data-level="1.7" data-path="apdx01_tips.html">
             
                 <a href="apdx01_tips.html">
             
@@ -219,7 +232,7 @@
 <li>Use HTTPS.</li>
 <li>Use authenticated routes - reduce the unauthenticated ones to an absolute minimum.</li>
 <li>Model your resources with nouns only.</li>
-<li>Use plural, even it is a gramatically word plural.</li>
+<li>Use plural, even it is a grammatically word plural.</li>
 <li>Stick to the base routes and the following mapping:<ul>
 <li>GET       /companies</li>
 <li>POST      /companies</li>
@@ -235,7 +248,7 @@
 </li>
 <li>A detail route responds with an object.</li>
 <li>An index route responds with a list of objects.</li>
-<li>Use meaningfull error codes. At least 200/301/400/401/403/422/500.</li>
+<li>Use meaningful error codes. At least 200/301/400/401/403/422/500.</li>
 <li>Do not use your root path for anything (/).</li>
 <li>A single call contains <em>every peace of information</em> that is needed to fulfill the complete request.</li>
 </ul>
@@ -260,7 +273,12 @@
 <li>Model pagination using HATEOAS.</li>
 </ul>
 <h2 id="final-note">Final note</h2>
-<p>Always remember: stelessness empowers you with horizontal scalability - if it really is stateless.</p>
+<p>Always remember: statelessness empowers you with horizontal scalability - if it really is stateless.</p>
+<h1 id="links">links</h1>
+<ul>
+<li><a href="https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/" target="_blank">https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/</a></li>
+<li><a href="https://blog.philipphauer.de/restful-api-design-best-practices/" target="_blank">https://blog.philipphauer.de/restful-api-design-best-practices/</a></li>
+</ul>
 
                                 
                                 </section>
@@ -288,7 +306,7 @@
 
             
                 
-                <a href="03_HATEOAS.html" class="navigation navigation-prev " aria-label="Previous page: HATEOAS">
+                <a href="07_HTTP_codes.html" class="navigation navigation-prev " aria-label="Previous page: HTTP codes">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -304,7 +322,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Receipe","level":"1.5","depth":1,"next":{"title":"Bring Back Verbs","level":"1.6","depth":1,"path":"apdx01_tips.md","ref":"apdx01_tips.md","articles":[]},"previous":{"title":"HATEOAS","level":"1.4","depth":1,"path":"03_HATEOAS.md","ref":"03_HATEOAS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"09_receipe.md","mtime":"2018-08-30T19:07:59.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-30T19:10:48.864Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Receipe","level":"1.6","depth":1,"next":{"title":"Bring Back Verbs","level":"1.7","depth":1,"path":"apdx01_tips.md","ref":"apdx01_tips.md","articles":[]},"previous":{"title":"HTTP codes","level":"1.5","depth":1,"path":"07_HTTP_codes.md","ref":"07_HTTP_codes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"09_receipe.md","mtime":"2019-07-03T18:39:55.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-03T18:46:21.028Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
