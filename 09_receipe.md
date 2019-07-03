@@ -5,7 +5,7 @@ This is to summarize important things:
 * Use HTTPS.
 * Use authenticated routes - reduce the unauthenticated ones to an absolute minimum.
 * Model your resources with nouns only.
-* Use plural, even it is a gramatically word plural.
+* Use plural, even it is a grammatically word plural.
 * Stick to the base routes and the following mapping:
     * GET       /companies
     * POST      /companies
@@ -17,7 +17,7 @@ This is to summarize important things:
     * METHOD /companies/:cid/department/:did
 * A detail route responds with an object.
 * An index route responds with a list of objects.
-* Use meaningfull error codes. At least 200/301/400/401/403/422/500.
+* Use meaningful error codes. At least 200/301/400/401/403/422/500.
 * Do not use your root path for anything (/).
 * A single call contains _every peace of information_ that is needed to fulfill the complete request.
 
@@ -38,7 +38,7 @@ This is to summarize important things:
 * Model pagination using HATEOAS.
 
 ## Final note
-Always remember: stelessness empowers you with horizontal scalability - if it really is stateless.
+Always remember: statelessness empowers you with horizontal scalability - if it really is stateless.
 
 
 # links
